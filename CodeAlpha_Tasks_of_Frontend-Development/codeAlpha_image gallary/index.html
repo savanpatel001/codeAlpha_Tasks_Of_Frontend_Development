@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Image <span>Gallery</span></div>
+  <div class="header-right">
+    <input class="search-box" type="text" placeholder="🔍  Search..." id="searchInput" />
+    <select class="css-filter-select" id="cssFilter">
+      <option value="filter-none">No filter</option>
+      <option value="filter-warm">🌅 Warm</option>
+      <option value="filter-cool">❄️ Cool</option>
+      <option value="filter-mono">⬛ Mono</option>
+      <option value="filter-vivid">🎨 Vivid</option>
+      <option value="filter-fade">🌫️ Fade</option>
+    </select>
+    <div class="view-toggle">
+      <button class="view-btn active" id="gridBtn" title="Grid view">
+        <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+      </button>
+      <button class="view-btn" id="listBtn" title="List view">
+        <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="3" rx="1"/><rect x="1" y="7" width="14" height="3" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="filter-group" id="filterGroup">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="nature">Nature</button>
+    <button class="filter-btn" data-cat="architecture">Architecture</button>
+    <button class="filter-btn" data-cat="portrait">Portrait</button>
+    <button class="filter-btn" data-cat="abstract">Abstract</button>
+    <button class="filter-btn" data-cat="cityscape">Cityscape</button>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <span id="statsText">Showing 18 images</span>
+</div>
+
+<div class="gallery-wrap">
+  <div class="gallery grid-masonry filter-none" id="gallery">
+
+    <!-- Nature -->
+    <div class="gallery-item tall" data-cat="nature" data-title="Forest Dawn" data-desc="Pacific Northwest · 2024">
+      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80" alt="Forest Dawn" loading="lazy"/>
+      <div class="item-tag">Nature</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Forest Dawn</div><div class="item-meta">Nature · Pacific Northwest</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="architecture" data-title="Glass Spire" data-desc="Chicago, Illinois · 2023">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Glass Spire" loading="lazy"/>
+      <div class="item-tag">Architecture</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Glass Spire</div><div class="item-meta">Architecture · Chicago</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="abstract" data-title="Chromatic Drift" data-desc="Digital Art · 2024">
+      <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&q=80" alt="Chromatic Drift" loading="lazy"/>
+      <div class="item-tag">Abstract</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Chromatic Drift</div><div class="item-meta">Abstract · Digital</div></div>
+    </div>
+
+    <div class="gallery-item wide" data-cat="cityscape" data-title="Neon Meridian" data-desc="Tokyo, Japan · Night">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=900&q=80" alt="Neon Meridian" loading="lazy"/>
+      <div class="item-tag">Cityscape</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Neon Meridian</div><div class="item-meta">Cityscape · Tokyo Night</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="portrait" data-title="Golden Hour" data-desc="Studio Portrait · 2023">
+      <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Golden Hour" loading="lazy"/>
+      <div class="item-tag">Portrait</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Golden Hour</div><div class="item-meta">Portrait · Studio</div></div>
+    </div>
+
+    <div class="gallery-item tall" data-cat="nature" data-title="Mountain Veil" data-desc="Dolomites, Italy · Fog">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Mountain Veil" loading="lazy"/>
+      <div class="item-tag">Nature</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Mountain Veil</div><div class="item-meta">Nature · Dolomites</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="architecture" data-title="Arc Moderne" data-desc="Paris, France · 2022">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80" alt="Arc Moderne" loading="lazy"/>
+      <div class="item-tag">Architecture</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Arc Moderne</div><div class="item-meta">Architecture · Paris</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="abstract" data-title="Liquid Signal" data-desc="Generative · 2024">
+      <img src="https://images.unsplash.com/photo-1507908708918-778587c9e563?w=600&q=80" alt="Liquid Signal" loading="lazy"/>
+      <div class="item-tag">Abstract</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Liquid Signal</div><div class="item-meta">Abstract · Generative</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="cityscape" data-title="Bridge at Dusk" data-desc="Brooklyn Bridge · NY">
+      <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=600&q=80" alt="Bridge at Dusk" loading="lazy"/>
+      <div class="item-tag">Cityscape</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Bridge at Dusk</div><div class="item-meta">Cityscape · New York</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="nature" data-title="Desert Bloom" data-desc="Sahara · Spring 2023">
+      <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80" alt="Desert Bloom" loading="lazy"/>
+      <div class="item-tag">Nature</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Desert Bloom</div><div class="item-meta">Nature · Sahara</div></div>
+    </div>
+
+    <div class="gallery-item wide" data-cat="portrait" data-title="Shadows & Light" data-desc="Fine Art Portrait">
+      <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=900&q=80" alt="Shadows and Light" loading="lazy"/>
+      <div class="item-tag">Portrait</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Shadows & Light</div><div class="item-meta">Portrait · Fine Art</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="architecture" data-title="Spiral Ascent" data-desc="Museum of Modern Art">
+      <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=600&q=80" alt="Spiral Ascent" loading="lazy"/>
+      <div class="item-tag">Architecture</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Spiral Ascent</div><div class="item-meta">Architecture · Interior</div></div>
+    </div>
+
+    <div class="gallery-item tall" data-cat="cityscape" data-title="Fog City" data-desc="San Francisco · Dawn">
+      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&q=80" alt="Fog City" loading="lazy"/>
+      <div class="item-tag">Cityscape</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Fog City</div><div class="item-meta">Cityscape · San Francisco</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="abstract" data-title="Prism Break" data-desc="Light Refraction · Studio">
+      <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80" alt="Prism Break" loading="lazy"/>
+      <div class="item-tag">Abstract</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Prism Break</div><div class="item-meta">Abstract · Light</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="nature" data-title="Tide Pool" data-desc="Pacific Coast · Oregon">
+      <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80" alt="Tide Pool" loading="lazy"/>
+      <div class="item-tag">Nature</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Tide Pool</div><div class="item-meta">Nature · Oregon</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="portrait" data-title="Reverie" data-desc="Natural Light · 2024">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Reverie" loading="lazy"/>
+      <div class="item-tag">Portrait</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Reverie</div><div class="item-meta">Portrait · Natural Light</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="architecture" data-title="Steel Garden" data-desc="London · 2023">
+      <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80" alt="Steel Garden" loading="lazy"/>
+      <div class="item-tag">Architecture</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Steel Garden</div><div class="item-meta">Architecture · London</div></div>
+    </div>
+
+    <div class="gallery-item" data-cat="abstract" data-title="Ember Flow" data-desc="Long Exposure · Fire">
+      <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=600&q=80" alt="Ember Flow" loading="lazy"/>
+      <div class="item-tag">Abstract</div>
+      <button class="item-like" aria-label="Like"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+      <div class="item-overlay"><div class="item-title">Ember Flow</div><div class="item-meta">Abstract · Long Exposure</div></div>
+    </div>
+
+    <div class="no-results" id="noResults"><span>∅</span>No images match your search.</div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">←</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">→</button>
+  <div class="lb-content">
+    <div style="position:relative;">
+      <span class="lb-counter" id="lbCounter">1 / 18</span>
+      <div class="lb-img-wrap">
+        <img id="lbImg" src="" alt="" />
+      </div>
+    </div>
+    <div class="lb-info">
+      <div class="lb-title" id="lbTitle"></div>
+      <div class="lb-desc" id="lbDesc"></div>
+    </div>
+    <div class="lb-thumbnails" id="lbThumbs"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
